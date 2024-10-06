@@ -10,15 +10,16 @@ const app = express()
 app.use(express.json())
 
 //using cors to allow only custom cross origin requests.
-app.use(
-    cors(
-        {
-            origin: "http://localhost:3000",
-            methods: ['GET', 'POST', 'DELETE', 'PUT'],
-            allowedHeaders: ['Content-Type']
-        }
-    )
-)
+app.use(cors())
+// app.use(
+//     cors(
+//         {
+//             origin: "http://localhost:3000",
+//             methods: ['GET', 'POST', 'DELETE', 'PUT'],
+//             allowedHeaders: ['Content-Type']
+//         }
+//     )
+// )
 
 
 //connecting to database
