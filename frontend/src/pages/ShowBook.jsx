@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import BackButton from '../components/BackButton'
 import Spinner from '../components/Spinner'
+import { useSnackbar } from 'notistack'
 
 function ShowBook() {
   
@@ -10,6 +11,7 @@ function ShowBook() {
   const [loading, setLoading]=useState(false)
 
   const {id}=useParams()
+  const {enqueueSnackbar}=useSnackbar()
 
   useEffect(()=>{
       setLoading(true)
@@ -22,6 +24,7 @@ function ShowBook() {
         })
         .catch(err=>{
           console.log(err)
+          enqueueSnackbar("An error occured", {variant: "error"})
         })
 
   }, [])
